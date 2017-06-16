@@ -1,0 +1,76 @@
+#include <Servo.h>
+
+Servo servo1;
+Servo servo2;
+Servo servo3;
+Servo servo4;
+Servo servo5;
+Servo servo6;// create servo object to control a servo
+Servo servo7; // twelve servo objects can be created on most boards
+Servo servo8;
+Servo servo9;
+Servo servo10;
+
+int runcycle;
+
+void setup() {
+  servo1.attach(3);
+  servo2.attach(4);
+  servo3.attach(5);
+  servo4.attach(6);
+  servo5.attach(7);
+  servo6.attach(8);
+  servo7.attach(9);
+  servo8.attach(10);
+  servo9.attach(11);
+  servo10.attach(12); 
+}
+
+void loop() {
+  
+
+legup(servo1, 15);
+legup(servo2, 50);
+legup(servo3, 50);
+legup(servo4, 20);
+legup(servo5, 20);
+legdown(servo1, 15);
+legdown(servo2, 50);
+legdown(servo3, 50);
+legup(servo6,15);
+legup(servo7,50);
+legup(servo8,50);
+legdown(servo4, 20);
+legdown(servo5, 20);
+legup(servo9,20);
+legup(servo10,20);
+legdown(servo6,15);
+legdown(servo7,50);
+legdown(servo8,50);
+
+
+
+
+
+delay(15) ;
+}
+
+
+void legup(Servo servo, int degree){
+int leg_position;
+
+for (leg_position = degree; leg_position >0; leg_position--) {
+  servo.write(leg_position);
+  delay(15);
+  }
+}
+
+void legdown(Servo servo, int degree){
+int leg_position;
+
+for (leg_position = 0; leg_position <= degree; leg_position++) {
+  servo.write(leg_position);
+  delay(15);
+  Serial.println(degree); 
+  }
+}
